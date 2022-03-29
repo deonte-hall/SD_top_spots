@@ -19,22 +19,9 @@ $.getJSON("./data.json", data => {
 
     for(i= 0; i < data.length; i++){
 
-        //These declarations were an attempt to add the 'a' variable inside the <td> tags where nameColumn is declared 
-
-        var a = document.createElement('a'); 
-        var link = document.createTextNode("Link to Google Maps");
-        a.appendChild(link);
-        a.title = "Link to Google Maps";
-        a.href= mapLinks[i];
-
-        //!** Bug here, there are multiple links on the bottom of page (how to put them in table?)
-
-        document.body.appendChild(a);
-
-
-        //This final set of instructions will add the indexed values to the table rows using the after() method
+       
+        let nameColumn= `<tr><td>${data[i].name}</td><td>${data[i].description}</td> <td><a href= "https://www.google.com/maps?q=${data[i].location[0]},${data[i].location[1]}">Open in Google Maps</a></td></tr>`
         
-        let nameColumn= `<tr><td>${data[i].name}</td><td>${data[i].description}</td> <td>Coordinates are ${data[i].location}</td></tr>`
         $("#topsTable").after(nameColumn);
         console.log(data[i].location[0])
 
@@ -43,3 +30,14 @@ $.getJSON("./data.json", data => {
 });
 
 
+ //These declarations were an attempt to add the 'a' variable inside the <td> tags where nameColumn is declared 
+
+      /*  var a = document.createElement('a'); 
+        var link = document.createTextNode("Link to Google Maps");
+        a.appendChild(link);
+        a.title = "Link to Google Maps";
+        a.href= mapLinks[i]; */
+
+        //!** Bug here, there are multiple links on the bottom of page (how to put them in table?)
+
+       // document.body.appendChild(a);
