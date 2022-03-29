@@ -20,7 +20,7 @@ $.getJSON("./data.json", data => {
 
 
 
-        let nameColumn= `<tr><td>${data[i].name}</td><td>${data[i].description}</td> <td>${data[i].location}</td></tr>`
+        let nameColumn= `<tr><td>${data[i].name}</td><td>${data[i].description}</td> <td>Coordinates are ${data[i].location}</td></tr>`
         $("#topsTable").after(nameColumn);
         console.log(data[i].location[0])
 
